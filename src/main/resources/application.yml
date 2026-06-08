@@ -1,0 +1,60 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: yu-ai-agent
+  ai:
+    dashscope:
+      api-key: ${DASHSCOPE_API_KEY:}
+      chat:
+        model: qwen-turbo
+        temperature: 0.7
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        max-document-batch-size: 10000
+    mcp:
+      client:
+        enabled: false
+        sse:
+          connections:
+            server1:
+              url: http://localhost:8127
+#        stdio:
+#          servers-configuration: classpath:mcp-servers.json
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/yu_ai_agent}
+    username: ${DB_USERNAME:my_user}
+    password: ${DB_PASSWORD:}
+
+server:
+  port: 8123
+  servlet:
+    context-path: /api
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: default
+      paths-to-match: /**
+      packages-to-scan: com.yupi.yuaiagent.controller
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+search_api:
+  api-key: ${SEARCH_API_KEY:}
+
+app:
+  rag:
+    pgvector:
+      enabled: false
+    initialize-on-startup: false

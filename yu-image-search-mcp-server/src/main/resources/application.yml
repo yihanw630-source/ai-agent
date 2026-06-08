@@ -1,0 +1,12 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: yu-image-search-mcp-server
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: false
+  profiles:
+    active: sse
+server:
+  port: 8127

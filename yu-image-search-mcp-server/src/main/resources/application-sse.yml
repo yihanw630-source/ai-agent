@@ -1,0 +1,13 @@
+spring:
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: false
+  ai:
+    mcp:
+      server:
+        name: yu-image-search-mcp-server
+        version: 0.0.1
+        type: SYNC
+        # sse
+        stdio: false
+
