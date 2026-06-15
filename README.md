@@ -1,4 +1,4 @@
-# Yu AI Agent
+# AI Agent
 
 基于 Spring Boot + Spring AI 的 AI Agent 项目，用户可以针对有关恋爱问题进行询问，此agent支持大模型对话、工具调用、RAG 知识库问答、联网搜索、文件操作、PDF 生成，并提供 Vue 前端聊天界面和图片搜索 MCP 服务。
 
